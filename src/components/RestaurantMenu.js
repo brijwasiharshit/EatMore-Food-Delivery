@@ -18,11 +18,10 @@ const RestaurantMenu = () => {
     
     if (resInfo === null) return <Shimmer />;
 
-    // const { name} = resInfo?.data?.cards[0]?.card?.card?.info;
-
+    const { text} = resInfo?.data?.cards[0]?.card?.card;
     return (
         <div>
-            <h2 className='text-center font-bold text-lg my-6'>{resInfo?.data?.cards[0]?.card?.card?.info}</h2>
+            <h2 className='text-center font-bold text-lg my-6'>{text}</h2>
             {categories.map((cat,index)=>{
                return <RestaurantCategory data = {cat.card.card} showItems = {index === showIndex ? true : false} setShowIndex = {()=>setShowIndex(index)}/>
             }
