@@ -16,7 +16,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch(API_URL);
+    const response = await fetch(`https://thingproxy.freeboard.io/fetch/${API_URL}`);
     const json = await response.json();
 
     const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
