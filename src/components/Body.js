@@ -4,6 +4,7 @@ import { API_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import ResCard, { FastDelivery } from "./ResCard";
 import Shimmer from "./Shimmer";
+import SearchIcon from "../utils/SVG/SearchIcon";
 
 const Body = () => {
   const [listRestaurants, setRestaurants] = useState([]);
@@ -40,10 +41,12 @@ const Body = () => {
   return listRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="border-4">
+    <div >
+      <div className="border-4 flex justify-between bg-yellow-50 items-center">
+        <div>
         <input
-          className="border-2 border-black mx-4 my-2 rounded-m "
+          placeholder="Search restaurants...."
+          className="border-2 border-black mx-4 my-2 rounded-m px-4 py-1 rounded-md"
           value={searchText}
           style={{ marginLeft: "10px" }}
           onChange={(e) => {
@@ -51,7 +54,7 @@ const Body = () => {
           }}
         />
         <button
-          className="bg-gray-600 px-4 rounded-lg text-white"
+          className="bg-gray-300 px-4 rounded-lg text-gray-700 py-1 hover:bg-gray-100 border-black border-2 "
           onClick={() => {
             const filteredList = listRestaurants.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -59,11 +62,12 @@ const Body = () => {
             setfilteredListRestaurants(filteredList);
           }}
         >
-          Search
+        <span className="hover:scale-110">🔍 Search</span>
         </button>
+        </div>
 
         <button
-          className="bg-gray-600 px-4 rounded-lg mx-4 text-white"
+          className=" px-4 rounded-lg mx-4 text-red bg-gray-100 border-black border-2 my-2"
           onClick={() => {
             const filteredList = listRestaurants.filter(
               (res) => res.info.avgRating > 4.2
@@ -71,7 +75,7 @@ const Body = () => {
             setfilteredListRestaurants(filteredList);
           }}
         >
-          Top Rated Restaurants
+        🔀Top Restaurants 
         </button>
       </div>
       <div className="flex flex-wrap">
