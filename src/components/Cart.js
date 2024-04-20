@@ -14,7 +14,7 @@ const Cart = () => {
 
   return (
     <div className='flex justify-between'>
-      <div className="w-6/12 mx-auto my-8 bg-green-100 p-4 rounded-lg">
+      <div className="w-6/12 mx-auto my-8 bg-green-100 p-4 rounded-lg flex flex-col justify-center">
       <ItemList items={cartItems} buttonType = "remove"/>
       {cartItems.length > 0 ? (
         <button

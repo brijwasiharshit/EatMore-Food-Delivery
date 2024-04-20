@@ -41,8 +41,8 @@ const Body = () => {
   return listRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div >
-      <div className="border-4 flex justify-between bg-yellow-50 items-center">
+    <div className="bg-yellow-50">
+      <div className="border-2 flex justify-between items-center">
         <div>
         <input
           placeholder="Search restaurants...."
@@ -54,7 +54,7 @@ const Body = () => {
           }}
         />
         <button
-          className="bg-gray-300 px-4 rounded-lg text-gray-700 py-1 hover:bg-gray-100 border-black border-2 "
+          className="bg-gray-300 px-4 rounded-lg text-gray-700 py-1 hover:bg-gray-100 border-black border-2 sm:flex-row mx-16 mb-1 sm:mb-0 sm:mx-0"
           onClick={() => {
             const filteredList = listRestaurants.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -62,7 +62,7 @@ const Body = () => {
             setfilteredListRestaurants(filteredList);
           }}
         >
-        <span className="hover:scale-110">🔍 Search</span>
+        <span className="hover:scale-110 ">🔍 <span className="hidden sm:inline-block">Search</span></span>
         </button>
         </div>
 
@@ -75,7 +75,7 @@ const Body = () => {
             setfilteredListRestaurants(filteredList);
           }}
         >
-        🔀Top Restaurants 
+        🔀<span className="hidden sm:inline-block">Top Restaurants</span> 
         </button>
       </div>
       <div className="flex flex-wrap">
