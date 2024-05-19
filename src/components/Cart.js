@@ -26,7 +26,9 @@ const Cart = () => {
         <h1 className="text-lg bg-red-400 text-white p-4 rounded-md text-center font-bold">Cart is empty</h1>
       )}
     </div>
-    <Billing />
+    {
+      cartItems.length > 0 && <Billing />
+    }
     </div>
   );
 };
