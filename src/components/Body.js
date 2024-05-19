@@ -29,7 +29,7 @@ const Body = () => {
       setfilteredListRestaurants(restaurants);
     } catch (error) {
       console.error('Error fetching data:', error);
-      throw new Error('Unable to fetch data. Please install a CORS plugin to allow cross-origin requests. Link - https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf');
+      throw new Error('Unable to fetch data. Please install a CORS plugin to allow cross-origin requests');
     }
   };
 
